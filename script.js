@@ -36,7 +36,7 @@ function saveJoke() {
   displaySavedJokes();
 }
 
-// DELETE
+//DELETE
 function deleteJoke(index) {
   let jokes = JSON.parse(localStorage.getItem("jokes")) || [];
   jokes.splice(index, 1);
@@ -45,7 +45,7 @@ function deleteJoke(index) {
   displaySavedJokes();
 }
 
-// PATCH (Edit)
+// PATCH
 function editJoke(index) {
   let jokes = JSON.parse(localStorage.getItem("jokes")) || [];
   let updated = prompt("Edit joke:", jokes[index]);
@@ -57,7 +57,7 @@ function editJoke(index) {
   }
 }
 
-// Render jokes
+
 function displaySavedJokes() {
   savedJokesList.innerHTML = "";
 
@@ -80,11 +80,11 @@ function displaySavedJokes() {
     savedJokesList.appendChild(li);
   });
 
-  //  SELECT ALL buttons AFTER rendering
+  
   const deleteButtons = document.querySelectorAll(".delete-btn");
   const editButtons = document.querySelectorAll(".edit-btn");
 
-  // Attach events using index
+  
   deleteButtons.forEach((btn, index) => {
     btn.addEventListener("click", () => deleteJoke(index));
   });
@@ -94,7 +94,7 @@ function displaySavedJokes() {
   });
 }
 
-//  Event Listeners
+
 getJokeBtn.addEventListener("click", getJoke);
 saveJokeBtn.addEventListener("click", saveJoke);
 
